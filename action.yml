@@ -66,8 +66,8 @@ runs:
       if: runner.os == 'Linux'
       shell: bash
       run: |
-        sudo apt-get update
-        sudo apt-get install clamav-daemon
+        sudo apt-get update -y
+        sudo apt-get install clamav-daemon -y
         sudo systemctl stop clamav-freshclam
         sudo freshclam -F --update-db=bytecode \
           $([ ${{ inputs.db_main }} = true ] && echo "--update-db=main") \
