@@ -68,7 +68,7 @@ runs:
       run: |
         sudo apt-get update -y
         sudo apt-get install clamav-daemon -y
-        sudo systemctl stop clamav-freshclam
+        # sudo systemctl stop clamav-freshclam
         sudo freshclam -F --update-db=bytecode \
           $([ ${{ inputs.db_main }} = true ] && echo "--update-db=main") \
           $([ ${{ inputs.db_daily }} = true ] && echo "--update-db=daily")
